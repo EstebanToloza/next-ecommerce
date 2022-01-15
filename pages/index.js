@@ -1,7 +1,5 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@material-ui/core'
-import Head from 'next/head'
 import NextLink from 'next/link'
-import Image from 'next/image'
 import Layout from '../components/Layout'
 import data from '../utils/data';
 
