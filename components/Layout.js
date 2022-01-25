@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import React, { useContext } from 'react';
 import useStyles from '../utils/utils';
 import { Store } from '../utils/Store';
-import Cookies from 'js-cookie';
+//import Cookies from 'js-cookie';
 
 const Layout = ({title, description, children}) => {
     const {state, dispatch} = useContext(Store);
@@ -41,12 +41,12 @@ const Layout = ({title, description, children}) => {
     const date = new Date().getFullYear();
     const classes = useStyles();
 
-    const handleDarkMode = () => {
-        dispatch({type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON'});
-        const newDarkMode = !darkMode;
+    // const handleDarkMode = () => {
+    //     dispatch({type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON'});
+    //     const newDarkMode = !darkMode;
 
-        Cookies.set('darkMode', newDarkMode ? 'ON' : 'OFF')
-    }
+    //     Cookies.set('darkMode', newDarkMode ? 'ON' : 'OFF')
+    // }
 
     return (
         <div>
