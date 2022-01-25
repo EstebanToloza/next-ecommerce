@@ -1,14 +1,14 @@
-import { AppBar, Container, createTheme, CssBaseline, Link, Switch, ThemeProvider, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Container, createTheme, CssBaseline, Link, Switch, ThemeProvider, Toolbar, Typography, Badge } from '@material-ui/core';
 import Head from 'next/head';
 import NextLink from 'next/link';
 import React, { useContext } from 'react';
 import useStyles from '../utils/utils';
 import { Store } from '../utils/Store';
-//import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 
 const Layout = ({title, description, children}) => {
     const {state, dispatch} = useContext(Store);
-    const {darkMode} = state;
+    const {darkMode, cart} = state;
 
     console.log(darkMode)
 
@@ -67,7 +67,18 @@ const Layout = ({title, description, children}) => {
                         <div>
                             {/* <Switch checked={darkMode} onChange={handleDarkMode}></Switch> NOT WORKING */}
                             <NextLink href="/cart" passHref>
-                                <Link>Cart</Link>
+                                <Link>
+                                    {cart.cartItems.length > 0 ? (
+                                        <Badge
+                                        color="secondary"
+                                        badgeContent={cart.cartItems.length}
+                                        >
+                                        Cart
+                                        </Badge>
+                                    ) : (
+                                        'Cart'
+                                    )}
+                                </Link>
                             </NextLink>
                             <NextLink href="/login" passHref>
                                 <Link>Login</Link>
